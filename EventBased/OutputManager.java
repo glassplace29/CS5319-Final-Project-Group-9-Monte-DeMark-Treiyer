@@ -1,8 +1,8 @@
 public class OutputManager {
-  private EventManager manage;
+  private UserInterace manage;
 
-  public OutputManager(EventManager manage) {
-      this.manage = manage;
+  public OutputManager() {
+    
   }
 
   public void displayMessage(String message) {

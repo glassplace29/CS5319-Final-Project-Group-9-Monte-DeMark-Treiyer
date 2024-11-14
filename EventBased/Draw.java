@@ -1,12 +1,6 @@
 public class Draw {
-  private EventManager manage;
-  private int bodyDrawn;
 
-  public Draw(EventManager manage) {
-      this.manage = manage;
-  }
-
-  public void drawNextPart() {
+  public void drawNextPart(int remainingGuesses) {
       // Logic to draw the next part of the hangman
   }
 

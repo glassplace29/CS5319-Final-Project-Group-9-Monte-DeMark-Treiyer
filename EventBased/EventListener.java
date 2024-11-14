@@ -1,4 +1,9 @@
-public interface EventListener {
-  void onEvent(String eventType, Object eventData);
-}
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
+public class EventListener implements ActionListener{
+  public void actionPerformed(ActionEvent event){
+      
+  }
+}

@@ -1,30 +1,42 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class WordManager {
-    private int currentWord;
+    private int currentWordNum;
+    private int currentLevelNum;
     private List<String> levelCategories;
-    private int[] numPerCategory;
+    private List<Integer> numPerCategory;
     private List<String> animals;
 
     public WordManager() {
-        currentWord = 0;
+        // Current word in category starts at zero
+        currentWordNum = 0;
+
+        // Current category or level is the first element in levelCategories
+        currentLevelNum = 0;
+
+        // diffenent words for different categories
+        animals = new ArrayList<String>(Arrays.asList("lion", "zebra", "tiger"));
+
+        // All categories
+        levelCategories = new ArrayList<String>(Arrays.asList("animals"));
+        
+        // The number of words for each category
+        numPerCategory = new ArrayList<Integer>(Arrays.asList(3));
         
         // setup all the categories
-        animals = new ArrayList<String>();
-        animals.add("lion");
-        animals.add("zebra");
+        
     }
 
     public String getNextWord() {
         // Logic to select the next word
-        return animals.get(currentLevel);
-        
+        return animals.get(currentWordNum);
     }
 
-    public void nextWord() {
+    public void nextLevel() {
         // Logic to proceed to the next level
-        currentWord += 1;
+        
     }
 
     public void handleLevelUp() {

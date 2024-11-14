@@ -1,7 +1,7 @@
 public class OutputManager {
-  private UserInterace manage;
 
-  public OutputManager() {
+  public OutputManager(){
+
     
   }
 

@@ -9,12 +9,15 @@ import java.awt.GridLayout;
 
 
 public class UserInterace extends JFrame{
-    private JButton testButton;
-
-    private static final String[] ALPHABET = {
+    public static final String[] ALPHABET = {
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
         "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
+
+    JPanel hangManImage;
+    JPanel guesserLabel;
+    JPanel buttonPanel;
+    GameStateManager GameState;
 
     public UserInterace() {
         // names the window
@@ -27,16 +30,16 @@ public class UserInterace extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Creates action listener
-        EventListener listener = new EventListener();
+        EventListener listener = new EventListener(this);
 
         // Create the Hangman image
-        JPanel hangManImage = new JPanel();
+        hangManImage = new JPanel();
 
         // Create the guesser label
-        JPanel guesser = new JPanel();
+        guesserLabel = new JPanel();
 
         // Creates a panel of alphabet buttons
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
 
         // Makes a grid
         buttonPanel.setLayout(new GridLayout(4, 7, 5, 5));

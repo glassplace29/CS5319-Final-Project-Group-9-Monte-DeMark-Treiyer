@@ -1,33 +1,44 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 
 public class GameStateManager {
-    private String wordToGuess;
-    private Set<Character> guessedLetters = new HashSet<>();
-    private int remainingGuesses;
-    private boolean isGameOver;
+    
 
-    GuessHandler guess = new GuessHandler();
-    WordManager wordManager = new WordManager();
-    OutputManager output
+    GuessWordDisplay guess;
+    WordManager wordManager;
+    OutputManager output;
+    
+    private int remainingGuesses;
+    private String wordToGuess;
+    private boolean isGameOver;
+    
 
     public GameStateManager() {
-        guess = new GuessHandler();
         wordManager = new WordManager();
-        output = new OutputManager();
+        initializeGame();
     }
 
-    public void initializeGame(String word, int maxGuesses) {
+    public void initializeGame() {
         // Initialize game logic
-        wordToGuess = LevelManager.getNextWord()
-
+        wordToGuess = wordManager.getNextWord();
+        guess = new GuessWordDisplay(wordToGuess);
+        remainingGuesses = 6;
+        isGameOver = false;
     }
 
-    public void handleGuess(char letter, boolean isCorrect) {
+    public void guessLetter(char letter) {
         // Handle guess logic
+        boolean result = guess.handleGuess(letter);
+        if(!result){
+            remainingGuesses -= 1;
+            if(remainingGuesses == 0){
+                isGameOver = true;
+            }
+        }
     }
 
-    private void checkGameStatus() {
+    private boolean checkGameStatus() {
         // Logic to check the game's status
+        return isGameOver;
     }
 }

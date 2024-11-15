@@ -2,7 +2,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class GameStateManager {
-    
 
     GuessWordDisplay guess;
     WordManager wordManager;
@@ -26,7 +25,7 @@ public class GameStateManager {
         isGameOver = false;
     }
 
-    public void guessLetter(char letter) {
+    public boolean guessLetter(char letter) {
         // Handle guess logic
         boolean result = guess.handleGuess(letter);
         if(!result){
@@ -35,10 +34,15 @@ public class GameStateManager {
                 isGameOver = true;
             }
         }
+        return result;
     }
 
     public boolean checkGameStatus() {
         // Logic to check the game's status
         return isGameOver;
+    }
+
+    public int getRemainingGuesses(){
+        return remainingGuesses;
     }
 }

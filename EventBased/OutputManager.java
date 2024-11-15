@@ -2,10 +2,10 @@ import javax.swing.JOptionPane;
 
 public class OutputManager {
 
-    UserInterface UI;
+    IntellijUserInterface UI;
     JOptionPane pane;
 
-    public OutputManager(UserInterface UI){
+    public OutputManager(IntellijUserInterface UI){
         this.UI = UI;
     }
 
@@ -17,9 +17,9 @@ public class OutputManager {
         // Logic to display instructions
         String instructionMessage = "How to play:\n" +
                                     "Guess a word that corresponds to the category. If you don't\n" +
-                                    "guess the word befor the stick figure is hung, you lose!";
+                                    "guess the word before the stick figure is hung, you lose!";
 
-        pane.showMessageDialog(UI, instructionMessage, "Instructions", JOptionPane.DEFAULT_OPTION);
+        JOptionPane.showMessageDialog(null, instructionMessage);
     }
 
     // public int displayGameOver(boolean playerWon) {

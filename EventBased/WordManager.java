@@ -46,4 +46,8 @@ public class WordManager {
     public void reset() {
         // Logic to reset for a new level
     }
+
+    public String getLevelCategory() {
+        return levelCategories.get(currentLevelNum);
+    }
 }

@@ -187,7 +187,7 @@ public class IntellijUserInterface extends JFrame {
 
     protected void changeIncorectGuessesTextDisplay(int remainingGuesses) {
         int amountOfGuessesLeft = 6 - remainingGuesses;
-        IncorectGuessesText.setText("Incorect Guesses: " + Integer.toString(amountOfGuessesLeft));
+        IncorectGuessesText.setText("Incorect Guesses: " + Integer.toString(amountOfGuessesLeft) + "/" + Integer.toString(6));
     }
 
     protected void changeHangManImage(URL hangmanImage) {

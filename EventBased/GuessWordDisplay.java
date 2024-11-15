@@ -13,11 +13,13 @@ public class GuessWordDisplay {
     public GuessWordDisplay(String word) {
         guessWord = word;
         StringBuilder sb = new StringBuilder();
+        unguessedLetters = new ArrayList<>();
+        guessedLetters = new ArrayList<>();
         lengthOfWord = word.length();
 
         for(int i = 0; i < word.length(); i++){
           sb.append("_");
-          unguessedLetters.add(word.charAt(i));
+          unguessedLetters.add(guessWord.charAt(i));
         }
 
         guessWordDisplay = sb;
@@ -47,5 +49,9 @@ public class GuessWordDisplay {
           guessWordDisplay.setCharAt(i, letter);
         }
       }
+    }
+
+    public String getGuessWordDisplay(){
+      return guessWordDisplay.toString();
     }
 }

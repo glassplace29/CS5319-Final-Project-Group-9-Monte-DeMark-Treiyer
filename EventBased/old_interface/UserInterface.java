@@ -1,42 +1,45 @@
 import java.awt.FlowLayout;
-import javax.swing.JFrame;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.Font;
 
-
-public class UserInterace extends JFrame{
+public class UserInterface extends JFrame{
     public static final String[] ALPHABET = {
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
         "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
 
-    JPanel hangManImage;
-    JPanel guesserLabel;
-    JPanel buttonPanel;
+    private JLabel hangManImage;
+    private JLabel guesserLabel;
+    private JPanel buttonPanel;
     GameStateManager GameState;
+    OutputManager Output;
 
-    public UserInterace() {
+    public UserInterface() {
         // names the window
         super("Hangman - CS 5319");
-        
+
         // sets window size
         setSize(300, 200);
-        
+
         // makes sure clicking x closes the application
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create Objects
+        GameState = new GameStateManager();
+        Output = new OutputManager(this);
 
         // Creates action listener
         EventListener listener = new EventListener(this);
 
         // Create the Hangman image
-        hangManImage = new JPanel();
+        hangManImage = new JLabel();
 
         // Create the guesser label
-        guesserLabel = new JPanel();
+        String firstWord = GameState.guess.getGuessWordDisplay();
+        guesserLabel = new JLabel(firstWord);
+        guesserLabel.setFont(new Font("Arial", Font.PLAIN, 24));
 
         // Creates a panel of alphabet buttons
         buttonPanel = new JPanel();
@@ -51,10 +54,9 @@ public class UserInterace extends JFrame{
             button.addActionListener(listener);
             buttonPanel.add(button);
         }
-    }
 
-    public static void main(String[] args){
-        UserInterace example = new UserInterace();
-        example.setVisible(true);
+        add(guesserLabel, BorderLayout.LINE_END);
+        add(buttonPanel, BorderLayout.LINE_END);
+        Output.displayInstructions();
     }
 }

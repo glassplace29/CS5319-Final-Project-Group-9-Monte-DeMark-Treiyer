@@ -4,19 +4,21 @@ import javax.swing.JOptionPane;
 
 public class EventListener implements ActionListener{
 
-  UserInterace UI;
+  UserInterface UI;
 
   // So I can controll fields in UI
-  EventListener(UserInterace UI){
+  EventListener(UserInterface UI){
     this.UI = UI;
   }
 
   public void actionPerformed(ActionEvent event){
       String action = event.getActionCommand();
       
-      for(String letter : UserInterace.ALPHABET){
+      for(String letter : UserInterface.ALPHABET){
         if(action.equals(letter)){
             UI.GameState.guessLetter(letter.charAt(0));
+            if(UI.GameState.checkGameStatus()){
+            }
         }
       }
   }

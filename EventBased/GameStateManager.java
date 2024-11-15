@@ -37,7 +37,7 @@ public class GameStateManager {
         }
     }
 
-    private boolean checkGameStatus() {
+    public boolean checkGameStatus() {
         // Logic to check the game's status
         return isGameOver;
     }

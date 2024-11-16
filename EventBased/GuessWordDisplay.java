@@ -67,4 +67,8 @@ public class GuessWordDisplay {
         }
         return sb.toString();
     }
+
+    public boolean isWordGuessed(){
+        return (guessWord.equals(guessWordDisplay.toString()));
+    }
 }

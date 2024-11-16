@@ -10,20 +10,27 @@ public class GameStateManager {
     private int remainingGuesses;
     private String wordToGuess;
     private boolean isGameOver;
-    private boolean isWordGuessed;
     
 
     public GameStateManager() {
         wordManager = new WordManager();
-        nextWord();
+        initiate();
     }
 
-    public void nextWord() {
+    public void initiate(){
+        wordManager.reset();
+        wordToGuess = wordManager.getFirstWord();
+        guess = new GuessWordDisplay(wordToGuess);
+        remainingGuesses = 6;
+        isGameOver = false;
+    }
+
+    public String nextWord() {
         // Initialize game logic
         wordToGuess = wordManager.getNextWord();
         guess = new GuessWordDisplay(wordToGuess);
         remainingGuesses = 6;
-        isGameOver = false;
+        return wordToGuess;
     }
 
     public boolean guessLetter(char letter) {
@@ -41,10 +48,6 @@ public class GameStateManager {
     public boolean checkGameStatus() {
         // Logic to check the game's status
         return isGameOver;
-    }
-
-    public boolean isWordGuessed() {
-        return isWordGuessed;
     }
 
     public String getWordToGuess() {

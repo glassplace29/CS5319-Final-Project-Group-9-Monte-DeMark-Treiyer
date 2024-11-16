@@ -45,11 +45,12 @@ public class EventManager implements ActionListener{
 
       // Check if the game is over
       if(gameStateManager.checkGameStatus()){
+          outputManager.displayGameOver();
       }
 
       // Check if word guessed
-      if(gameStateManager.isWordGuessed()){
-
+      if(gameStateManager.guess.isWordGuessed()){
+          outputManager.progressMessage();
       }
     }
 }

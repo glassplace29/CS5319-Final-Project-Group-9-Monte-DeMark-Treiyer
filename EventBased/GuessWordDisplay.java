@@ -52,6 +52,19 @@ public class GuessWordDisplay {
     }
 
     public String getGuessWordDisplay(){
-      return guessWordDisplay.toString();
+        // convert to string
+        String displayWord = guessWordDisplay.toString();
+
+        // new string builder
+        StringBuilder sb = new StringBuilder();
+
+        // Iterate through each character of the string
+        for (int i = 0; i < displayWord.length(); i++) {
+            sb.append(displayWord.charAt(i)); // Append the current character
+            if (i < displayWord.length() - 1) {
+                sb.append(" "); // Append a space except after the last character
+            }
+        }
+        return sb.toString();
     }
 }

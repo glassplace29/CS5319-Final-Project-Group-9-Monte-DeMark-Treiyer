@@ -1,6 +1,9 @@
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.lang.reflect.Field;
+
 
 public class WordManager {
     private int currentWordNum;
@@ -8,6 +11,7 @@ public class WordManager {
     private List<String> levelCategories;
     private List<Integer> numPerCategory;
     private List<String> animals;
+    private List<String> countries;
 
     public WordManager() {
         // Current word in category starts at zero
@@ -16,11 +20,12 @@ public class WordManager {
         // Current category or level is the first element in levelCategories
         currentLevelNum = 0;
 
-        // diffenent words for different categories
+        // different words for different categories
         animals = new ArrayList<String>(Arrays.asList("lion", "zebra", "tiger"));
+        countries = new ArrayList<String>(Arrays.asList("argentina", "usa", "brazil"));
 
         // All categories
-        levelCategories = new ArrayList<String>(Arrays.asList("animals"));
+        levelCategories = new ArrayList<String>(Arrays.asList("animals", "countries"));
         
         // The number of words for each category
         numPerCategory = new ArrayList<Integer>(Arrays.asList(3));
@@ -31,20 +36,29 @@ public class WordManager {
 
     public String getNextWord() {
         // Logic to select the next word
-        return animals.get(currentWordNum);
+        currentWordNum ++;
+        if(currentWordNum >= numPerCategory.get(currentLevelNum)){
+            currentWordNum = 0;
+            currentLevelNum ++;
+        }
+        if(currentLevelNum >= levelCategories.size()){
+            return "Game Complete";
+        }
+
+        String categtory = levelCategories.get(currentLevelNum);
+        Field categoryVar =
+
     }
 
-    public void nextLevel() {
+    public boolean levelUp() {
         // Logic to proceed to the next level
         
-    }
-
-    public void handleLevelUp() {
-        // Logic to handle leveling up
     }
   
     public void reset() {
         // Logic to reset for a new level
+        currentWordNum = 0;
+        currentLevelNum = 0;
     }
 
     public String getLevelCategory() {

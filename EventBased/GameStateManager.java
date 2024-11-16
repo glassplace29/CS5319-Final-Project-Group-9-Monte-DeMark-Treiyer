@@ -10,14 +10,15 @@ public class GameStateManager {
     private int remainingGuesses;
     private String wordToGuess;
     private boolean isGameOver;
+    private boolean isWordGuessed;
     
 
     public GameStateManager() {
         wordManager = new WordManager();
-        initializeGame();
+        nextWord();
     }
 
-    public void initializeGame() {
+    public void nextWord() {
         // Initialize game logic
         wordToGuess = wordManager.getNextWord();
         guess = new GuessWordDisplay(wordToGuess);
@@ -42,6 +43,13 @@ public class GameStateManager {
         return isGameOver;
     }
 
+    public boolean isWordGuessed() {
+        return isWordGuessed;
+    }
+
+    public String getWordToGuess() {
+        return wordToGuess;
+    }
     public int getRemainingGuesses(){
         return remainingGuesses;
     }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CS5319-Final-Project-Group-9-Monte-DeMark-Treiyer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CS5319_Final_Project_Group_9_Monte_DeMark_Treiyer_jar</output-path>
+    <root id="archive" name="CS5319-Final-Project-Group-9-Monte-DeMark-Treiyer.jar">
+      <element id="module-output" name="CS5319-Final-Project-Group-9-Monte-DeMark-Treiyer" />
+    </root>
+  </artifact>
+</component>

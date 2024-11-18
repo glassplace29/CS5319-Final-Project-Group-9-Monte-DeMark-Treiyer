@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 
 public class EventManager implements ActionListener{
 
-  IntellijUserInterface UI;
+    protected IntellijUserInterface UI;
 
     // OutputManager
     protected OutputManager outputManager;
@@ -40,7 +40,7 @@ public class EventManager implements ActionListener{
       else{
           int remainingGuesses = gameStateManager.getRemainingGuesses();
           UI.changeHangManImage(draw.drawNextPart(remainingGuesses));
-          UI.changeIncorectGuessesTextDisplay(remainingGuesses);
+          UI.changeIncorrectGuessesTextDisplay(remainingGuesses);
       }
 
       // Check if the game is over

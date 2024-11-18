@@ -3,11 +3,11 @@ import java.util.List;
 
 public class GuessWordDisplay {
 
-    String guessWord;
-    StringBuilder guessWordDisplay;
-    int lengthOfWord;
-    List<Character> unguessedLetters;
-    List<Character> guessedLetters;
+    private String guessWord;
+    private StringBuilder guessWordDisplay;
+    private int lengthOfWord;
+    private List<Character> unguessedLetters;
+    private List<Character> guessedLetters;
     
 
     public GuessWordDisplay(String word) {

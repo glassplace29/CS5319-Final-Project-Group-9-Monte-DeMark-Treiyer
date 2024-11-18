@@ -2,8 +2,8 @@ import javax.swing.JOptionPane;
 
 public class OutputManager {
 
-    IntellijUserInterface UI;
-    EventManager eventManager;
+    protected IntellijUserInterface UI;
+    protected EventManager eventManager;
 
     public OutputManager(IntellijUserInterface UI, EventManager eventManager) {
         this.UI = UI;
@@ -28,7 +28,7 @@ public class OutputManager {
             JOptionPane.showMessageDialog(null, "Level UP! Your word was " + lastWord + "!" +
                                                                         "\nNext category: " + eventManager.gameStateManager.wordManager.getLevelCategory());
             UI.changeHangManImage(eventManager.draw.resetDrawing());
-            UI.changeIncorectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
+            UI.changeIncorrectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
             UI.changeCategoryTextDisplay(eventManager.gameStateManager.wordManager.getLevelCategory());
             UI.changeBigTextDisplay(eventManager.gameStateManager.guess.getGuessWordDisplay());
             UI.resetLetterButtons();
@@ -39,7 +39,7 @@ public class OutputManager {
 
             JOptionPane.showMessageDialog(null, "Nice! Your word was " + lastWord + "!");
             UI.changeHangManImage(eventManager.draw.resetDrawing());
-            UI.changeIncorectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
+            UI.changeIncorrectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
             UI.changeBigTextDisplay(eventManager.gameStateManager.guess.getGuessWordDisplay());
             UI.resetLetterButtons();
         }
@@ -58,7 +58,7 @@ public class OutputManager {
         JOptionPane.showMessageDialog(null, "Game Over!\nThe correct word was: " + eventManager.gameStateManager.getWordToGuess());
         eventManager.gameStateManager.initiate();
         UI.changeHangManImage(eventManager.draw.resetDrawing());
-        UI.changeIncorectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
+        UI.changeIncorrectGuessesTextDisplay(eventManager.gameStateManager.getRemainingGuesses());
         UI.changeCategoryTextDisplay(eventManager.gameStateManager.wordManager.getLevelCategory());
         UI.changeBigTextDisplay(eventManager.gameStateManager.guess.getGuessWordDisplay());
         UI.resetLetterButtons();

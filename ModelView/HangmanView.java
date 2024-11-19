@@ -194,7 +194,6 @@ public class HangmanView extends JFrame {
       cardLayout.show(mainPanel, "EndScreen"); // Display the updated end screen
   }
   
-  
     private void drawHangman(Graphics g, int incorrectGuesses) {
       Graphics2D g2d = (Graphics2D) g;
   

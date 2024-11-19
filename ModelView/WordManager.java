@@ -39,6 +39,5 @@ public class WordManager {
   public boolean hasNextLevel(int level) {
     return categories.containsKey(level + 1); 
   }
-  
 }
 

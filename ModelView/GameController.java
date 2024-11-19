@@ -43,7 +43,6 @@ public class GameController {
     }
   }
 
-
   public void resetToLevelOne() {
     currentLevel = 1;  // resets to level one 
     gameState = null; // Clear the current game state
